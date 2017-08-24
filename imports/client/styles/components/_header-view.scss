@@ -1,0 +1,25 @@
+.header-view {
+  width: 100wv;
+  background: $brand-primary;
+}
+
+.header-view__box {
+  padding: .8rem;
+  padding-top: 2rem;
+  margin-left: auto;
+  margin-right: auto;
+  color: white;
+  width: 50rem;
+  display: flex;
+  vertical-align: middle;
+  justify-content:space-between;
+}
+
+.header-view__logout {
+  color: white;
+  text-decoration: underline;
+  background: transparent;
+  border: none;
+  font-size: 1.6rem;
+  margin-top: -1.5rem;
+}
