@@ -1,5 +1,6 @@
 import React from 'react';
 import { Accounts } from 'meteor/accounts-base';
+import { createContainer } from 'meteor/react-meteor-data';
 
 // export default class PrivateHeader extends React.Component {
 //
@@ -19,12 +20,12 @@ import { Accounts } from 'meteor/accounts-base';
 
 
 // Statless Functional Component
-const PrivateHeader = (props) => {
+export const PrivateHeader = (props) => {
   return (
     <div className="header-view">
       <div className="header-view__box">
         <h1>{props.title}</h1>
-        <button className="header-view__logout" onClick={() => Accounts.logout()}>Logout</button>
+        <button className="header-view__logout" onClick={() => props.handleLogout()}>Logout</button>
       </div>
     </div>
   );
@@ -33,7 +34,14 @@ const PrivateHeader = (props) => {
 
 // make the title required
 PrivateHeader.propTypes = {
-  title: React.PropTypes.string.isRequired
+  title: React.PropTypes.string.isRequired,
+  handleLogout: React.PropTypes.func.isRequired
 };
 
-export default PrivateHeader;
+export default createContainer(() => {
+  return {
+    handleLogout: () => Accounts.logout()
+  };
+}, PrivateHeader);
+
+// export default PrivateHeader;
