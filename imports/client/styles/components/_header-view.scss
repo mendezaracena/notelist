@@ -9,9 +9,10 @@
   margin-left: auto;
   margin-right: auto;
   color: white;
-  width: 50rem;
+  width: $site-max-width;
   display: flex;
   vertical-align: middle;
+  height: $header-height;
   justify-content:space-between;
 }
 
