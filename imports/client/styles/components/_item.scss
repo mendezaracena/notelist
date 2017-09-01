@@ -25,7 +25,7 @@
   border-left: $item-border-width solid $grey;
 }
 
-.item--selected, item--selected:hover {
+.item--selected, .item--selected:hover {
   background-color: $light-grey;
   border-left: $item-border-width solid $brand-primary;
 }
