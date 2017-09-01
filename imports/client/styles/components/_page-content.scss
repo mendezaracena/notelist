@@ -1,23 +1,44 @@
+@mixin funkyBorder ($borderSize: 10px, $borderColor: orange) {
+  border: $borderSize solid $borderColor;
+
+  * {
+    @content;
+  }
+}
+
+
+@mixin desktop {
+  @media (min-width: 50rem) {
+    @content;
+  }
+}
 .page-content {
   display: flex;
   margin: 0 auto;
   width: $site-max-width;
-  padding: $large-space $space;
   height: $page-content-height;
+
+  @include desktop {
+    display: flex;
+  }
+
 }
 
 .page-content__sidebar {
-  display: flex;
+  display: none;
   padding-right: $large-space;
   width: $page-content-sidebar-width;
-}
 
-@media (max-width: 50rem) {
-  .page-content__sidebar * {
-    color: red;
+  @include desktop {
+    display: flex;
   }
 }
+
 .page-content__main{
   display: flex;
-  width: $page-content-main-width;
+  width: 100%;
+
+  @include desktop {
+    width: $page-content-main-width;
+  }
 }
